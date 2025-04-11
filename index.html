@@ -10,17 +10,60 @@
 <body>
   <div class="overlay">
     <div class="logo-container">
-      <img src="SMX Logo Cropped Enhanced.jpeg" alt="SwiftMovesXpress Logo" />
+      <img src="logo.jpg" alt="SwiftMovesXpress Logo" />
     </div>
     <h1>We’re Rolling Out Soon.</h1>
     <p>Your go-to for fast, reliable logistics & courier services.</p>
-    <div class="notify">
-      <input type="email" placeholder="Enter your email" />
-      <button>Notify Me</button>
-    </div>
+
+    <!-- Formspree Form -->
+    <form id="my-form" action="https://formspree.io/f/xkgjkary" method="POST" class="contact-form">
+      <label for="email">Email:</label>
+      <input type="email" name="email" required />
+
+      <label for="message">Message:</label>
+      <input type="text" name="message" required />
+
+      <button id="my-form-button">Submit</button>
+      <p id="my-form-status"></p>
+    </form>
+
     <footer>
       © 2025 SwiftMovesXpress. All rights reserved.
     </footer>
   </div>
+
+  <!-- Form Submission Script -->
+  <script>
+    var form = document.getElementById("my-form");
+    
+    async function handleSubmit(event) {
+      event.preventDefault();
+      var status = document.getElementById("my-form-status");
+      var data = new FormData(event.target);
+      fetch(event.target.action, {
+        method: form.method,
+        body: data,
+        headers: {
+            'Accept': 'application/json'
+        }
+      }).then(response => {
+        if (response.ok) {
+          status.innerHTML = "Thanks for your submission!";
+          form.reset()
+        } else {
+          response.json().then(data => {
+            if (Object.hasOwn(data, 'errors')) {
+              status.innerHTML = data["errors"].map(error => error["message"]).join(", ")
+            } else {
+              status.innerHTML = "Oops! There was a problem submitting your form"
+            }
+          })
+        }
+      }).catch(error => {
+        status.innerHTML = "Oops! There was a problem submitting your form"
+      });
+    }
+    form.addEventListener("submit", handleSubmit)
+  </script>
 </body>
 </html>
