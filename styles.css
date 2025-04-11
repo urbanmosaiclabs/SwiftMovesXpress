@@ -1,3 +1,4 @@
+/* Font and Base Styles */
 body {
   margin: 0;
   padding: 0;
@@ -15,31 +16,62 @@ body {
   padding: 20px;
 }
 
-.logo-container img {
-  width: 300px;
-  max-width: 80%;
-  margin-bottom: 20px;
+/* Logo Container with Animation */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
+.logo-container {
+  max-width: 90%;
+  margin: 0 auto 20px;
+  animation: fadeInUp 1s ease-out;
+}
+
+.logo-container img {
+  width: 100%;
+  height: auto;
+  max-width: 400px;
+}
+
+/* Heading Animation */
 h1 {
   font-size: 2.5rem;
   margin: 10px 0;
   color: #ffffff;
+  animation: fadeInUp 1s ease-out;
+  animation-delay: 0.3s;
+  animation-fill-mode: both;
 }
 
+/* Paragraph Animation */
 p {
   font-size: 1.2rem;
   color: #cfcfcf;
   margin-bottom: 30px;
+  animation: fadeInUp 1s ease-out;
+  animation-delay: 0.6s;
+  animation-fill-mode: both;
 }
 
+/* Form Animation */
 .notify {
   display: flex;
   justify-content: center;
   gap: 10px;
   flex-wrap: wrap;
+  animation: fadeInUp 1s ease-out;
+  animation-delay: 0.9s;
+  animation-fill-mode: both;
 }
 
+/* Email Input Field */
 input[type="email"] {
   padding: 12px;
   font-size: 1rem;
@@ -48,6 +80,7 @@ input[type="email"] {
   width: 250px;
 }
 
+/* Button Styling */
 button {
   background: linear-gradient(to right, #00cfff, #ae00ff);
   color: white;
@@ -63,6 +96,7 @@ button:hover {
   opacity: 0.85;
 }
 
+/* Footer */
 footer {
   margin-top: 40px;
   font-size: 0.9rem;
