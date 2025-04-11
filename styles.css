@@ -8,6 +8,7 @@
 /* Font and Base Styles */
 body {
   margin: 0;
+  margin-top: 20px;
   padding: 0;
   font-family: 'Orbitron', sans-serif;
   background: linear-gradient(145deg, #0a0a23, #121232);
