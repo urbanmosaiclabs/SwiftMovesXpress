@@ -7,6 +7,7 @@
 
 /* Font and Base Styles */
 body {
+  overflow: auto
   margin: 0;
   margin-top: 20px;
   padding: 0;
